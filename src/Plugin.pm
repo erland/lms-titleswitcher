@@ -116,10 +116,10 @@ sub getTitleFormat
 	if($tag =~ /^TITLESWITCHER(.*)$/) {
 		my $format = $1;
 
-		my $validateRequest = Slim::Control::Request::executeRequest($client,['licensemanager','validate','application:TitleSwitcher']);
-		if(!$validateRequest->getResult("result")) {
-			return string('PLUGIN_TITLESWITCHER_LICENSE_REQUIRED_SHORT');
-		}
+		#my $validateRequest = Slim::Control::Request::executeRequest($client,['licensemanager','validate','application:TitleSwitcher']);
+		#if(!$validateRequest->getResult("result")) {
+		#	return string('PLUGIN_TITLESWITCHER_LICENSE_REQUIRED_SHORT');
+		#}
 
 		if($reloadVersion != $client->pluginData('reloadVersion') || !defined($client->pluginData('format')) ) {
 			$client->pluginData('format' => {});

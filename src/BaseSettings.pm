@@ -59,9 +59,9 @@ sub handler {
 	}
 	$params->{'subpages'} = \%currentSubPages;
 	$params->{'subpage'} = $class->currentPage($client,$params);
-	$params->{'licensemanager'} = Plugins::TitleSwitcher::Plugin::isPluginsInstalled($client,'LicenseManagerPlugin');
-	my $validateRequest = Slim::Control::Request::executeRequest($client,['licensemanager','validate','application:TitleSwitcher']);
-	$params->{'licensed'} = $validateRequest->getResult("result");
+	$params->{'licensemanager'} = 1; #Plugins::TitleSwitcher::Plugin::isPluginsInstalled($client,'LicenseManagerPlugin');
+	#my $validateRequest = Slim::Control::Request::executeRequest($client,['licensemanager','validate','application:TitleSwitcher']);
+	$params->{'licensed'} = 1; #$validateRequest->getResult("result");
 	return $class->SUPER::handler($client, $params);
 }
 		
